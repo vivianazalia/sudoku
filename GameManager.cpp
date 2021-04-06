@@ -4,44 +4,76 @@
 using namespace std;
 
 void GameManager::StartGame() {
+	string name;
+
 	board.ResetBoard();
 
 	isMatching = false;
 
 	board.RandomFileGame();
+
+	cout << "--> Player's Name : ", cin >> name;
+	player.SetName(name);
+	player.IncrementScore(0);
+
 	board.DisplayBoard();
 }
 
 void GameManager::Input() {
-	int inputTileIndex;
-	char inputNumber;
+	int choice;
 
-	cout << "Which tile index do you choose? : "; cin >> inputTileIndex;
+	cout << "Which tile index do you choose? : "; cin >> tileIndex;
 
-	if (board.CheckTileAvailable(inputTileIndex))
+	if (board.CheckTileAvailable(tileIndex))
 	{
-		cout << "Enter a number 1- 9 : "; cin >> inputNumber;
+		cout << "Enter a number 1- 9 : "; cin >> number;
 
-		if (board.CheckValidInput(inputTileIndex, inputNumber))
+		cmd.ExecuteCommand(this);
+
+		board.DisplayBoard();
+
+		if (!board.CheckValidInput(tileIndex, number))
 		{
-			board.SetTile(inputTileIndex, inputNumber);
+			player.DecrementScore(5);
+			cout << "Wrong number!" << endl;
+			cout << "Undo (1)" << endl;
+			cout << "Choose option : "; cin >> choice;
+
+			if (choice == 1)
+			{
+				//undo option
+				cmd.UndoCommand(this);
+			}
 		}
 		else
 		{
-			cout << "Wrong number!" << endl;
-			//undo option
+			player.IncrementScore(10);
 		}
+
+		board.DisplayBoard();
 	}
 	else
 	{
 		cout << "Tile has been set! Please choose other tile!" << endl;
 	}
 
-	board.DisplayBoard();
+	cout << "--> SCORE : " << player.GetScore() << endl;
 
 	isMatching = board.CheckMatch();
 }
 
 bool GameManager::IsMatching() {
 	return isMatching;
+}
+
+void GameManager::Execute() {
+	board.SetTile(tileIndex, number);
+}
+
+void GameManager::Undo() {
+	board.SetTile(tileIndex, '.');
+}
+
+void GameManager::Redo() {
+
 }

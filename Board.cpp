@@ -140,7 +140,7 @@ void Board::RandomFileGame() {
 
 void Board::RandomNumber() {
 	srand(time(0));
-	for (int i = 0; i < 12; i++)
+	for (int i = 0; i < 40; i++)
 	{
 		int random = rand() % 81;
 		SetTile(random, GetBufferTile(random));
