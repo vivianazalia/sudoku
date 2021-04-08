@@ -45,10 +45,5 @@ public:
 			redoStack.pop();
 		}
 	}
-
-	void ShowUndoStack() {
-		cout << "UndoStack : " << undoStack.size() << endl;
-		cout << "RedoStack : " << redoStack.size() << endl;
-	}
 };
 

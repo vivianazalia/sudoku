@@ -115,7 +115,21 @@ void Board::ResetBoard() {
 }
 
 void Board::RandomFileGame() {
-	file.open("file1.txt", ios::in);
+	srand(time(0));
+	int random = rand() % 3;
+	if (random == 0)
+	{
+		file.open("file1.txt", ios::in);
+	}
+	else if (random == 1)
+	{
+		file.open("file2.txt", ios::in);
+	}
+	else if (random == 2)
+	{
+		file.open("file3.txt", ios::in);
+	}
+	
 	while (!file.eof())
 	{
 		for (int i = 0; i < INDEX; i++)

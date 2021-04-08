@@ -38,8 +38,6 @@ void GameManager::Input() {
 
 			cmd.ExecuteCommand(new UndoRedo(board, tileIndex, number));
 
-			//cmd.ShowUndoStack();
-
 			if (!board.CheckValidInput(tileIndex, number))
 			{
 				player.DecrementScore(5);
@@ -66,8 +64,6 @@ void GameManager::Input() {
 	}
 
 	board.DisplayBoard();
-
-	//cmd.ShowUndoStack();
 
 	isMatching = board.CheckMatch();
 

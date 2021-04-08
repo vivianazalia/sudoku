@@ -1,2 +1,8 @@
-﻿  GameManager.cpp
+﻿  Board.cpp
+D:\Project\sudoku\Board.cpp(118,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Project\sudoku\Board.cpp(148,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  GameManager.cpp
+  Player.cpp
+  Sudoku.cpp
+  Generating Code...
   Sudoku.vcxproj -> D:\Project\sudoku\x64\Debug\Sudoku.exe
