@@ -1,5 +1,6 @@
 #pragma once
 #include<stack>
+#include<iostream>
 #include"ICommand.h"
 
 using namespace std;
@@ -11,18 +12,43 @@ private:
 	stack<ICommand*> redoStack;
 public:
 	void ExecuteCommand(ICommand* c) {
+		ClearRedoStack();
 		c->Execute();
 		undoStack.push(c);
 	}
 
-	void UndoCommand(ICommand* c) {
-		if (undoStack.size() <= 0)
+	void UndoCommand() {
+		if (undoStack.empty())
 		{
 			return;
 		}
 
 		undoStack.top()->Undo();
+		redoStack.push(undoStack.top());
 		undoStack.pop();
+	}
+
+	void RedoCommand() {
+		if (redoStack.empty())
+		{
+			return;
+		}
+
+		redoStack.top()->Execute();
+		undoStack.push(redoStack.top());
+		redoStack.pop();
+	}
+
+	void ClearRedoStack() {
+		while (!redoStack.empty())
+		{
+			redoStack.pop();
+		}
+	}
+
+	void ShowUndoStack() {
+		cout << "UndoStack : " << undoStack.size() << endl;
+		cout << "RedoStack : " << redoStack.size() << endl;
 	}
 };
 

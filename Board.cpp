@@ -72,14 +72,6 @@ void Board::SetTile(int tileIndex, char numberInput) {
 	grid[row][column] = numberInput;
 }
 
-int Board::GetRow(int tileIndex){
-	return tileIndex /INDEX;
-}
-
-int Board::GetColumn(int tileIndex){
-	return (tileIndex % INDEX) - 1;
-}
-
 bool Board::CheckMatch() {
 	for (int i = 0; i < INDEX; i++)
 	{

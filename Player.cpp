@@ -17,10 +17,18 @@ void Player::DecrementScore(int s) {
 	}
 }
 
+void Player::DecreaseMoves() {
+	moves--;
+}
+
 string Player::GetName() {
 	return name;
 }
 
 int Player::GetScore() {
 	return score;
+}
+
+int Player::GetMoves() {
+	return moves;
 }

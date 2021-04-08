@@ -19,17 +19,7 @@ public:
 
 	void SetTile(int tileIndex, char inputNumber);
 
-	int GetRow(int);
-
-	int GetColumn(int);
-
 	bool CheckMatch();
-
-	bool CheckHorizontal(int row, char inputNumber);
-
-	bool CheckVertical(int, char);
-
-	bool CheckGroupMatch();
 
 	bool CheckTileAvailable(int tileIndex);
 

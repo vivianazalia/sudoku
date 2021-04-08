@@ -4,7 +4,7 @@
 #include"CommandManager.h"
 #include"Player.h"
 
-class GameManager : public ICommand
+class GameManager
 {
 private: 
 	Board board;
@@ -20,5 +20,7 @@ public:
 	void Execute();
 	void Undo();
 	void Redo();
+	int GetTileIndex();
+	void CheckWin();
 };
 
