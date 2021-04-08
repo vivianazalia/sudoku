@@ -9,17 +9,12 @@ private:
 	int tileIndex;
 	char number;
 public:
-	UndoRedo(Board &_board, int _tileIndex, char _number) : board(&_board) {
+	UndoRedo(Board& _board, int _tileIndex, char _number) : board(&_board) {
 		tileIndex = _tileIndex;
 		number = _number;
 	}
 
-	void Execute() {
-		board->SetTile(tileIndex, number);
-	}
-
-	void Undo() {
-		board->SetTile(tileIndex, '.');
-	}
+	void Execute();
+	void Undo();
 };
 

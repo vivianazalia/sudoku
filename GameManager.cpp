@@ -8,12 +8,13 @@ void GameManager::StartGame() {
 	string name;
 
 	board.ResetBoard();
+	player.ResetData();
 
 	isMatching = board.CheckMatch();
 
 	board.RandomFileGame();
 
-	cout << "--> Player's Name : ", cin >> name;
+	cout << "\n--> Player's Name : ", cin >> name;
 	player.SetName(name);
 	player.IncrementScore(0);
 
@@ -34,7 +35,7 @@ void GameManager::Input() {
 
 		if (board.CheckTileAvailable(tileIndex))
 		{
-			cout << "Enter a number 1- 9 : "; cin >> number;
+			cout << "Enter a number 1-9 : "; cin >> number;
 
 			cmd.ExecuteCommand(new UndoRedo(board, tileIndex, number));
 
@@ -43,20 +44,24 @@ void GameManager::Input() {
 				player.DecrementScore(5);
 				player.DecreaseMoves();
 				cout << "Wrong number!" << endl;
+				color.SetColor(12);
 			}
 			else
 			{
+				color.SetColor(7);
 				player.IncrementScore(10);
 			}
 		}
 		else
 		{
+			color.SetColor(3);
 			cout << "Tile has been set! Please choose other tile!" << endl;
 		}
 	}
 	else if (choice == 2)
 	{
 		cmd.UndoCommand();
+		color.SetColor(7);
 	}
 	else if (choice == 3)
 	{
@@ -88,3 +93,5 @@ void GameManager::CheckWin() {
 		cout << "\t\t\t    Score : " << player.GetScore() << endl;
 	}
 }
+
+//4210191015 - Vivian Azalia A

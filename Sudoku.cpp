@@ -1,8 +1,10 @@
 #include"GameManager.h"
+#include"Color.h"
 #include<iostream>
 
 //Global Variable
 GameManager gm;
+Color color;
 
 //Prototype Function
 void ShowGame();
@@ -12,7 +14,7 @@ int main() {
 	bool gameOn = true;
 
 	while (gameOn != false) {
-		//SetColor(07);
+		color.SetColor(7);
 		cout << endl;
 		cout << "=========================================================" << endl;
 		cout << "                      SUDOKU                        " << endl;
@@ -30,17 +32,15 @@ int main() {
 		switch (menu)
 		{
 		case 1:
-			//SetColor(03);
 			ShowGame();
-			// rest of code here
 			break;
 		case 2:
-			//SetColor(12);
+			color.SetColor(12);
 			cout << "\n --- The game has ended !!! ---\n";
 			gameOn = false;
 			break;
 		default:
-			//SetColor(12);
+			color.SetColor(12);
 			cout << " Not a Valid Choice. \n";
 			cout << " Choose again.\n";
 			cin >> menu;
@@ -61,3 +61,7 @@ void ShowGame() {
 		gm.Input();
 	}
 }
+
+
+//4210191015 - Vivian Azalia A
+//4210191021 - Intan Putri K W

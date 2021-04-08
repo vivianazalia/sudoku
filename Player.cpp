@@ -32,3 +32,10 @@ int Player::GetScore() {
 int Player::GetMoves() {
 	return moves;
 }
+
+void Player::ResetData() {
+	score = 0;
+	moves = 3;
+}
+
+//4210191021 - Intan Putri K W
