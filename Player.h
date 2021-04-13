@@ -11,12 +11,12 @@ private:
 	int moves;
 public:
 	void SetName(string);
-	void IncrementScore(int);
-	void DecrementScore(int);
-	void DecreaseMoves();
 	string GetName();
 	int GetScore();
 	int GetMoves();
+	void IncrementScore(int);
+	void DecrementScore(int);
+	void DecreaseMoves();
 	void ResetData();
 };
 

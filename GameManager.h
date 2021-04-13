@@ -19,10 +19,6 @@ public:
 	void StartGame();
 	void Input();
 	bool IsMatching();
-	void Execute();
-	void Undo();
-	void Redo();
-	int GetTileIndex();
 	void CheckWin();
 };
 

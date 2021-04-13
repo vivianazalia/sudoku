@@ -4,6 +4,18 @@ void Player::SetName(string n) {
 	name = n;
 }
 
+string Player::GetName() {
+	return name;
+}
+
+int Player::GetScore() {
+	return score;
+}
+
+int Player::GetMoves() {
+	return moves;
+}
+
 void Player::IncrementScore(int s) {
 	score += s;
 }
@@ -19,18 +31,6 @@ void Player::DecrementScore(int s) {
 
 void Player::DecreaseMoves() {
 	moves--;
-}
-
-string Player::GetName() {
-	return name;
-}
-
-int Player::GetScore() {
-	return score;
-}
-
-int Player::GetMoves() {
-	return moves;
 }
 
 void Player::ResetData() {

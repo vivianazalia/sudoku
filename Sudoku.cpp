@@ -6,9 +6,6 @@
 GameManager gm;
 Color color;
 
-//Prototype Function
-void ShowGame();
-
 int main() {
 	int menu;
 	bool gameOn = true;
@@ -32,7 +29,7 @@ int main() {
 		switch (menu)
 		{
 		case 1:
-			ShowGame();
+			gm.StartGame();
 			break;
 		case 2:
 			color.SetColor(12);
@@ -51,15 +48,6 @@ int main() {
 	system("pause");
 
 	return 0;
-}
-
-void ShowGame() {
-	gm.StartGame();
-
-	while (!gm.IsMatching())
-	{
-		gm.Input();
-	}
 }
 
 

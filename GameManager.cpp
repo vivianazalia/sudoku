@@ -19,6 +19,11 @@ void GameManager::StartGame() {
 	player.IncrementScore(0);
 
 	board.DisplayBoard();
+
+	while (!IsMatching())
+	{
+		Input();
+	}
 }
 
 void GameManager::Input() {
